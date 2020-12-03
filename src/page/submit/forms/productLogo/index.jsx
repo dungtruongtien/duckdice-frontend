@@ -1,0 +1,78 @@
+/* eslint-disable max-len */
+import { CloseCircleOutlined } from '@ant-design/icons';
+import React, { useRef, useState } from 'react';
+
+export default function LogoImage({ setFieldValue, imageKey }) {
+  const logoInputRef = useRef(document.createElement('input'));
+  const [image, setImage] = useState({ file: null, imagePreview: '' });
+
+  const onCancelImagePreview = () => {
+    setImage({ file: null, imagePreview: null });
+    setFieldValue(imageKey, null);
+  };
+
+  const renderImagePreview = () => {
+    return (
+      <div style={{ position: 'relative', zIndex: 10 }}>
+        <CloseCircleOutlined
+          onClick={() => onCancelImagePreview()}
+          style={{
+            zIndex: 1000, color: 'white', right: '0px', fontSize: '16px', position: 'absolute'
+          }}
+        />
+        <img style={{ borderRadius: '8px', width: 142, height: 142 }} src={image.imagePreview} alt='' />
+      </div>
+    );
+  };
+
+  const handleImageChange = (e) => {
+    const reader = new FileReader();
+    const file = e.target.files[0];
+    if (file) {
+      reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        setImage({ file, imagePreview: reader.result });
+        setFieldValue(imageKey, file);
+      };
+    }
+  };
+
+  const onImagePreviewClick = (inputRef) => {
+    inputRef.current.click();
+  };
+
+  const renderImage = () => {
+    return image.imagePreview
+      ? renderImagePreview()
+      : <div className='product-logo-input-title' onClick={() => onImagePreviewClick(logoInputRef)}>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 152 152" id="icon-submit_logo_background">
+          <title>Rectangle Copy 4</title>
+          <desc>Created with Sketch.</desc>
+          <g id="icon-submit_logo_background_页面1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+            <g id="icon-submit_logo_background_Submit-1-Dapp" transform="translate(-60.000000, -419.000000)">
+              <use id="icon-submit_logo_background_Rectangle-Copy-4" stroke="#A5ADBA" mask="url(#icon-submit_logo_background_mask-2)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="4,4" xlinkHref="#icon-submit_logo_background_path-1"></use>
+              <text id="icon-submit_logo_background_JPG,PNG-with-ratio-o" fontFamily="AvenirNext-Regular, Avenir Next" fontSize="12" fontWeight="normal" line-spacing="18" fill="#6B778C">
+                <tspan x="66.592" y="520">JPG,PNG with ratio of 1:1</tspan>
+                <tspan x="87.37" y="538">300*300 or larger </tspan>
+                <tspan x="95.152" y="556">recommended</tspan>
+              </text>
+              <path d="M117.5,464 C127.160063,464.011867 134.988133,471.839937 135,481.5 C135,491.164983 127.164983,499 117.5,499 C107.835017,499 100,491.164983 100,481.5 C100,471.835017 107.835017,464 117.5,464 Z M152.229339,435 C153.643328,435 154.999607,435.564161 156,436.569589 L156,436.569589 L162.440001,443.049173 C163.439286,444.05572 164,445.420336 164,446.843017 L164,446.843017 L164,484.633885 C164,487.597508 161.612186,490 158.666669,490 L158.666669,490 L138.040013,490 C137.825922,490 137.625515,489.8941 137.504068,489.716705 C137.382621,489.53931 137.355677,489.313157 137.432013,489.111908 C137.877514,487.841676 138.202519,486.531869 138.402679,485.20001 C138.447783,484.877501 138.72165,484.637395 139.045345,484.636568 L139.045345,484.636568 L157.333336,484.636568 C158.069716,484.636568 158.666669,484.035945 158.666669,483.295039 L158.666669,483.295039 L158.666669,447.39841 C158.666594,447.043301 158.526586,446.702708 158.277336,446.45129 L158.277336,446.45129 L152.618672,440.757842 C152.368791,440.507059 152.030279,440.366191 151.677339,440.366116 L151.677339,440.366116 L122.666687,440.366116 C121.930308,440.366116 121.333354,440.966739 121.333354,441.707644 L121.333354,441.707644 L121.333354,460.11342 C121.336023,460.302708 121.257783,460.484037 121.118517,460.611327 C120.97925,460.738618 120.792366,460.799615 120.605355,460.778819 C119.413355,460.647349 117.621356,460.572223 116.645357,460.556125 C116.284293,460.547346 115.997005,460.248737 116,459.88536 L116,459.88536 L116,440.366116 C116,437.402492 118.387837,435 121.333354,435 L121.333354,435 Z M117.5,473 C116.465914,473 115.618723,473.800188 115.543842,474.815147 L115.538462,474.961538 L115.538462,478.884615 C115.538462,479.212897 115.29653,479.484672 114.981236,479.531372 L114.884615,479.538462 L110.961538,479.538462 C109.878211,479.538462 109,480.416672 109,481.5 C109,482.534086 109.800188,483.381277 110.815147,483.456158 L110.961538,483.461538 L114.884615,483.461538 C115.212897,483.461538 115.484672,483.70347 115.531372,484.018764 L115.538462,484.115385 L115.538462,488.038462 C115.538462,489.121789 116.416672,490 117.5,490 C118.534086,490 119.381277,489.199812 119.456158,488.184853 L119.461538,488.038462 L119.461538,484.115385 C119.461538,483.787103 119.70347,483.515328 120.018764,483.468628 L120.115385,483.461538 L124.038462,483.461538 C125.121789,483.461538 126,482.583328 126,481.5 C126,480.465914 125.199812,479.618723 124.184853,479.543842 L124.038462,479.538462 L120.115385,479.538462 C119.787103,479.538462 119.515328,479.29653 119.468628,478.981236 L119.461538,478.884615 L119.461538,474.961538 C119.461538,473.878211 118.583328,473 117.5,473 Z M145.397921,455 C145.742671,455 146.063051,455.176541 146.245477,455.467033 L146.245477,455.467033 L154.921882,469.239313 C155.019971,469.392067 155.026113,469.585851 154.937893,469.744428 C154.849672,469.903006 154.681208,470.001 154.498773,470 L154.498773,470 L135.5419,470 C135.330155,470.004264 135.129818,469.904793 135.006319,469.733934 C134.182378,468.581502 133.245931,467.512622 132.210589,466.542828 C131.980161,466.331919 131.932969,465.988253 132.098117,465.723778 L132.098117,465.723778 L135.434783,460.423883 C135.619053,460.135933 135.938774,459.961515 136.28234,459.961515 C136.625906,459.961515 136.945627,460.135933 137.129896,460.423883 L137.129896,460.423883 L138.854465,463.178871 C138.946014,463.324083 139.106389,463.412272 139.278913,463.412272 C139.451437,463.412272 139.611811,463.324083 139.703361,463.178871 L139.703361,463.178871 L144.550365,455.467033 C144.73279,455.176541 145.053171,455 145.397921,455 Z M136,446 C137.061083,445.999289 138.078912,446.420488 138.829212,447.170788 C139.579512,447.921088 140.000711,448.938917 140,450 C140,452.209139 138.209138,454 136,454 C133.790861,454 132,452.209139 132,450 C132,447.790862 133.790861,446 136,446 Z" id="icon-submit_logo_background_形状结合" fill="#A5ADBA" fillRule="nonzero"></path>
+            </g>
+          </g>
+        </svg>
+      </div>;
+  };
+
+  return (
+    <div className='product-logo-input'>
+      {renderImage()}
+      <input
+        style={{ display: 'none' }}
+        className='product-logo-input'
+        onChange={handleImageChange}
+        ref={logoInputRef}
+        type='file'
+      />
+    </div>
+  );
+}
