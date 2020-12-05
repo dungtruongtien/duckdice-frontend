@@ -1,5 +1,4 @@
 import React from 'react';
-import { Rate } from 'antd';
 import Menu from './menu';
 import { HeaderInfo } from './menu/header.styled';
 
@@ -9,12 +8,12 @@ export default function Header() {
       <HeaderInfo>
         <div className='left-header-info'>
           <div className='winner-wrapper'>
-            <span class="fa fa-star rating"></span>
+            <span className="fa fa-star rating"></span>
             <div className='congrats'>Congrats</div>
             <div className='winner-name'>NINJA</div>
             <div className='winner-amount'>
               <div className='btc-wrapper'>
-                <i className="fa fa-btc" aria-hidden="true"></i>
+                <i className="fab fa-btc"></i>
               </div>
               <p>0.09900000</p>
             </div>
@@ -38,14 +37,14 @@ export default function Header() {
             <div className='news-content'>
               <div className='title'>Won Last 24h</div>
               <div className='btc-wrapper'>
-                <i className="fa fa-btc" aria-hidden="true"></i>
+                <i className="fab fa-btc"></i>
               </div>
               <div className='content'>10.67929201</div>
             </div>
             <div className='news-content'>
               <div className='title'>Jackpot</div>
               <div className='btc-wrapper'>
-                <i className="fa fa-btc" aria-hidden="true"></i>
+                <i className="fab fa-btc"></i>
               </div>
               <div className='content'>2.43605563</div>
             </div>
