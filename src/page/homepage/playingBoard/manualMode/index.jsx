@@ -15,7 +15,7 @@ export default function ManualMode() {
           </div>
           <Field name='betAmount'>
             {() => {
-              return (<input className='bet-amount-input' value='0.00000001' />);
+              return (<input className='bet-amount-input' onChange={() => { }} value='0.00000001' />);
             }}
           </Field>
         </div>
@@ -28,9 +28,9 @@ export default function ManualMode() {
       <div className='win-chance'>
         <div className='title'>WIN CHANCE</div>
         <div className='input-wrapper'>
-          <Field name='betAmount'>
+          <Field name='winChance'>
             {() => {
-              return (<input className='bet-amount-input' value='0.00000001' />);
+              return (<input className='bet-amount-input' onChange={() => { }} value='0.00000001' />);
             }}
           </Field>
         </div>
@@ -44,9 +44,9 @@ export default function ManualMode() {
       <div className='payout'>
         <div className='title'>PAYOUT</div>
         <div className='input-wrapper'>
-          <Field name='betAmount'>
+          <Field name='payout'>
             {() => {
-              return (<input className='bet-amount-input' value='0.00000001' />);
+              return (<input className='bet-amount-input' onChange={() => { }} value='0.00000001' />);
             }}
           </Field>
         </div>
@@ -59,9 +59,9 @@ export default function ManualMode() {
               <i className="fab fa-btc"></i>
             </div>
           </div>
-          <Field name='betAmount'>
+          <Field name='profit'>
             {() => {
-              return (<input className='bet-amount-input' value='0.00000001' />);
+              return (<input className='bet-amount-input' onChange={() => { }} value='0.00000001' />);
             }}
           </Field>
         </div>

@@ -1,18 +1,21 @@
 import { Button } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik } from 'formik';
 import { Board, RegisterButton } from './playingBoard.styled';
 import ManualMode from './manualMode';
+import FlashMode from './flashMode';
+import AutoMode from './autoMode';
 
 export default function PlayingBoard() {
+  const [mode, setMode] = useState('auto');
   return (
-    <Board>
+    <Board mode={mode}>
       <div className='board-header'>
         <div className='mode-wrapper'>
-          <Button className='btn manual-btn'>Manual</Button>
-          <Button className='btn auto-btn'>AUTO</Button>
-          <Button className='btn flash-btn'>FLASH</Button>
+          <Button onClick={() => setMode('manual')} className='btn manual-btn'>Manual</Button>
+          <Button onClick={() => setMode('auto')} className='btn auto-btn'>AUTO</Button>
+          <Button onClick={() => setMode('flash')} className='btn flash-btn'>FLASH</Button>
         </div>
         <div className='setting-wrapper'>
           <div className='btn-wrapper'>
@@ -112,6 +115,8 @@ export default function PlayingBoard() {
             </div>
             <div className='board-input'>
               <ManualMode />
+              {mode === 'auto' && <AutoMode />}
+              {mode === 'flash' && <FlashMode />}
             </div>
           </>
         )}

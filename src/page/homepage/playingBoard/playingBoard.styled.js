@@ -26,7 +26,6 @@ export const Board = styled.div`
     .mode-wrapper {
       display: flex;
       .btn {
-        color: #f6a623;
         background: #323a42;
         border-radius: 6px 0 0 6px;
         font-size: 12px;
@@ -37,14 +36,18 @@ export const Board = styled.div`
           color: #f6a623;
         }
       }
+      .manual-btn {
+        color: ${(props) => (props.mode === 'manual' ? '#f6a623' : '#8a99a5')};
+        background: ${(props) => (props.mode === 'manual' ? '#465059' : '#323a42')};
+      }
       .auto-btn {
-        color: #8a99a5;
-        background: #323a41;
+        color: ${(props) => (props.mode === 'auto' ? '#f6a623' : '#8a99a5')};
+        background: ${(props) => (props.mode === 'auto' ? '#465059' : '#323a42')};
         border-radius: 0;
       }
       .flash-btn {
-        color: #8a99a5;
-        background: #323a41;
+        color: ${(props) => (props.mode === 'flash' ? '#f6a623' : '#8a99a5')};
+        background: ${(props) => (props.mode === 'flash' ? '#465059' : '#323a42')};
         border-radius: 0 6px 6px 0;
       }
     }
@@ -209,12 +212,10 @@ export const Board = styled.div`
 
   .board-input {
     .manual-mode {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      flex-direction: row;
+      display: grid;
+      grid-template-columns: 25% 25% 25% 25%;
+      margin-bottom: 1rem;
       .input-wrapper {
-        width: 216px;
         display: flex;
         height: 45px;
         border: 1px solid #5c6b78;
@@ -262,6 +263,7 @@ export const Board = styled.div`
         }
       }
       .bet-amount {
+        padding-right: 10px;
         .formula-wrapper {
           margin-top: 0.5rem;
           display: grid;
@@ -282,6 +284,7 @@ export const Board = styled.div`
         }
       }
       .win-chance {
+        padding-right: 10px;
         .formula-wrapper {
           margin-top: 0.5rem;
           display: grid;
@@ -298,6 +301,154 @@ export const Board = styled.div`
             &:hover {
               color: #f6a623;
             }
+          }
+        }
+      }
+      .payout {
+        padding-right: 10px
+      }
+      .profit {
+        padding-right: 10px
+      }
+    }
+
+    .auto-mode {
+      .title {
+        color: #6b7b88;
+        font-size: 12px;
+        font-weight: 400;
+      }
+      .auto-mode-input-wrapper {
+        display: grid;
+        grid-template-columns: 25% 25% 25% 25%;
+        margin-bottom: 1rem;
+        .btc-icon-wrapper {
+          background: #465059;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 34px;
+          .btc-wrapper {
+            width: 20px;
+            height: 20px;
+            background: #8a99a5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            .fa-btc {
+              font-size: 10px;
+            }
+          }
+        }
+        .input-wrapper {
+          display: flex;
+          height: 45px;
+          border: 1px solid #5c6b78;
+          border-radius: 3px;
+          input {
+            background: transparent;
+            border: 0; 
+            padding-left: 0.25rem;
+            color: #8a99a5;
+            font-size: 14px;
+          }
+        }
+        .limits {
+          padding-right: 10px;
+          .limits-input-wrapper {
+            background: #353e46;
+            padding: 10px;
+            .max-bet-amount {
+              margin-bottom: 0.5rem;
+            }
+          }
+        }
+        .on-loss {
+          padding-right: 10px;
+          .on-loss-wrapper {
+            background: #353e46;
+            padding: 10px;
+            .on-loss-btn-wrapper {
+              display: flex;
+              align-items: flex-start;
+              margin-bottom: 1rem;
+              .change-by-set-input {
+                height: 45px;
+                border: 1px solid #5c6b78;
+                border-radius: 3px;
+                background: transparent;
+                padding-left: 0.5rem;
+                color: #8a99a5;
+                font-size: 14px;
+              }
+              .title {
+                line-height: 1;
+                margin-bottom: 0.5rem;
+              }
+              .on-loss-radio-btn {
+                margin-right: 0.5rem;
+              }
+            }
+          }
+        }
+      }
+
+      .high-low-mode-wrapper {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        margin-bottom: 1rem;
+        
+        .high-low-outer-wrapper {
+          padding-right: 10px;
+        }
+        .save-outer-wrapper {
+          padding-right: 10px;
+          .save-wrapper {
+            height: 180px;
+            background: #353e46;
+            padding: 10px;
+            .save-btn-wrapper {
+              width: 100%;
+              margin-bottom: 1rem;
+              display: flex;
+              justify-content: center;
+              border-bottom: 1px solid #465059;
+              padding-bottom: 15px;
+              .save-btn {
+                background: #465059;
+                color: #8a99a5;
+                border-radius: 6px;
+                border: 0;
+                font-size: 12px;
+                line-height: 44px;
+                padding: 0 20px;
+                min-width: 157px;
+                height: 44px;
+                text-transform: uppercase;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                text-decoration: none!important;
+                &:hover {
+                  color: #f6a623;
+                }
+              }
+            }
+            .input-wrapper {
+              display: flex;
+              height: 45px;
+              border: 1px solid #5c6b78;
+              border-radius: 3px;
+              input {
+                background: transparent;
+                border: 0; 
+                padding-left: 0.25rem;
+                color: #8a99a5;
+                font-size: 14px;
+              }
+            } 
           }
         }
       }
