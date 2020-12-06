@@ -8,7 +8,6 @@ export default function CustomRadioCheckbox({
     <>
       <input
         disabled={isDisabled}
-        checked={checked}
         type='radio'
         style={{ width: 0, height: 0, visibility: 'hidden' }}
         {...style}

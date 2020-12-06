@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import { Switch } from 'antd';
 import React, { useState } from 'react';
+import CustomRadioCheckbox from '../../../../../components/customRadioCheckbox';
 import { HighLowModeStyled } from './highLowMode.styled';
 
 export default function HighLowMode() {
@@ -23,29 +24,44 @@ export default function HighLowMode() {
         <div className='method-content'>
           {method === 'auto' ? <div className='method-radio-wrapper'>
             <div className='method-btn'>
-              <input
+              {/* <input
                 disabled={!isHighMode}
                 onChange={() => setMethodRadioValue('onLoss')}
                 checked={isHighMode && methodRadioValue === 'onLoss'}
                 type='radio'
+              /> */}
+              <CustomRadioCheckbox
+                isDisabled={!isHighMode}
+                onChange={() => setMethodRadioValue('onLoss')}
+                checked={isHighMode && methodRadioValue === 'onLoss'}
               />
               <div className='title'>ON LOSS</div>
             </div>
             <div className='method-btn'>
-              <input
+              {/* <input
                 disabled={!isHighMode}
                 onChange={() => setMethodRadioValue('onWin')}
                 checked={isHighMode && methodRadioValue === 'onWin'}
                 type='radio'
+              /> */}
+              <CustomRadioCheckbox
+                isDisabled={!isHighMode}
+                onChange={() => setMethodRadioValue('onWin')}
+                checked={isHighMode && methodRadioValue === 'onWin'}
               />
               <div className='title'>ON WIN</div>
             </div>
             <div className='method-btn'>
-              <input
+              {/* <input
                 disabled={!isHighMode}
                 onChange={() => setMethodRadioValue('eachBet')}
                 checked={isHighMode && methodRadioValue === 'eachBet'}
                 type='radio'
+              /> */}
+              <CustomRadioCheckbox
+                isDisabled={!isHighMode}
+                onChange={() => setMethodRadioValue('eachBet')}
+                checked={isHighMode && methodRadioValue === 'eachBet'}
               />
               <div className='title'>EACH BET</div>
             </div>

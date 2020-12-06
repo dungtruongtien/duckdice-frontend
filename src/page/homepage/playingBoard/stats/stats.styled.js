@@ -5,6 +5,7 @@ export const BoardStats = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 1rem;
     .tabs {
       color: #6b7b88;
       padding-right: 0.5rem;

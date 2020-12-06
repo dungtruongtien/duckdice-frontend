@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
+import { AllBetsTable } from './allBetsTable';
 import { BoardStats } from './stats.styled';
 
 export default function BoardGameStats() {
   const [tab, setTab] = useState('allBets');
+
+  const renderStatsTable = () => {
+    return (
+      <AllBetsTable />
+    );
+  };
+
   return (
     <BoardStats activeTab={tab}>
       <div className='tabs-wrapper'>
@@ -11,6 +19,7 @@ export default function BoardGameStats() {
         <div onClick={() => setTab('highRollers')} className='high-rollers-tab tabs'>HIGH ROLLERS</div>
         <div onClick={() => setTab('jackpots')} className='jackpots-tab tabs'>JACKPOTS</div>
       </div>
+      {renderStatsTable()}
     </BoardStats>
   );
 }

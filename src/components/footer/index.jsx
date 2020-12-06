@@ -1,68 +1,44 @@
 /* eslint-disable max-len */
-import { Col, Row } from 'antd';
+import { Rate } from 'antd';
 import React from 'react';
-import styled from 'styled-components';
-
-const FooterLeft = styled(Col)`
-  padding-right: 2rem;
-  .description {
-    color: #8993a4;
-    font-size: 12px;
-    line-height: 18px;
-    font-weight: 500;
-    margin-top: 16px;
-  }
-`;
-
-const FooterRight = styled(Col)`
-  display: flex;
-  justify-content: space-between;
-  a {
-    color: #7652ff;
-    font-size: 12px;
-    line-height: 18px;
-    margin-top: 8px;
-    font-weight: 500;
-    display: block;
-    transition: all .3s ease-in-out;
-  }
-`;
+import { FooterWrapper } from './footer.styled';
 
 export default function Footer() {
   return (
-    <Row style={{ padding: '2rem', borderTop: '1px solid #ebecf0' }}>
-      <FooterLeft span={12}>
-        <div>
-          <a href="http://localhost:3000" >
-            <img alt=''  src="/logo.png" />
-          </a>
+    <FooterWrapper>
+      <div className='footer-content'>
+        <div className='links link-1'>
+          <p><a href='http://localhost:3000'>Terms Of Use</a></p>
+          <p><a href='http://localhost:3000'>Privacy Policy</a></p>
+          <p><a href='http://localhost:3000'>About Us</a></p>
+          <p><a href='http://localhost:3000'>Gamble Aware</a></p>
         </div>
-        <p className='description'>
-          Where decentralization becomes reality for all. PApp is the platform for everyone to discover, use, and enjoy Papps 
-          with ease. Explore Papps built on Incognito Chain.
-        </p>
-      </FooterLeft>
-      <FooterRight span={12}>
-        <Col span={4}>
-          <p>
-            Quick Access
-          </p>
-          <a href="http://localhost:3000">Submit App</a> 
-          <a href="http://localhost:3000">SDK</a>
-          <a href="http://localhost:3000">Contact Us</a>
-        </Col>
-        <Col span={4}>
-          <p>Products</p>
-          <a href="http://localhost:3000">Market</a>
-          <a href="http://localhost:3000">Report</a>
-        </Col> 
-        <Col span={4}>
-          <p>Terms</p>
-          <a href="http://localhost:3000">Terms of User</a>
-          <a href="http://localhost:3000">Privacy Policy</a>
-          <a href="http://localhost:3000">Disclaimer</a>
-        </Col> 
-      </FooterRight>
-    </Row>
+        <div className='links link-2'>
+          <p><a href='http://localhost:3000'>Fair</a></p>
+          <p><a href='http://localhost:3000'>Help Center</a></p>
+          <p><a href='http://localhost:3000'>FAQ</a></p>
+        </div>
+        <div className='rate-wrapper'>
+          <div className='title'>AVERAGE SATISFACTION LEVEL</div>
+          <div className='rate'>
+            <Rate disabled defaultValue={5} />
+          </div>
+          <div className='rate-info'>Rated <span>5/5</span> based on 98 user reviews</div>
+          <div className='rate-image'>
+            <img className='image img-curacao' src='https://curacaolicense.net/wp-content/themes/dldglobal/assets/images/mini-slider-4.png' alt='' />
+            <img className='image img-duckdice' src='https://duckdice.io/assets/images/cgf-white.svg' alt='' />
+            <img className='image img-itech' src='https://duckdice.io/assets/images/img-itech-labs.svg' alt='' />
+          </div>
+        </div>
+        <div className='about-us'>
+          <div>
+              Sabant B.V. reg. number 147211. Heelsumstraat 51, E-Commercepark Unit 102, Curacao. Licence #8048/JAZ2018-018
+          </div>
+          <div>
+              Payment agent - Defraya Ltd. HE 408759. Loutrakiou 5, Chara Venezia Bld, 1st floor, Office 101, 2027 Nicosia, Cyprus.
+          </div>
+        </div>
+      </div>
+    </FooterWrapper>
   );
 }

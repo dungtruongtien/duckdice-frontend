@@ -370,9 +370,15 @@ export const Board = styled.div`
           .on-loss-wrapper {
             background: #353e46;
             padding: 10px;
+            .on-loss-btn-wrapper:first-child {
+              align-items: flex-start;
+              .title {
+                margin-bottom: 0.5rem;
+              }
+            }
             .on-loss-btn-wrapper {
               display: flex;
-              align-items: flex-start;
+              align-items: center;
               margin-bottom: 1rem;
               .change-by-set-input {
                 height: 45px;
@@ -380,15 +386,13 @@ export const Board = styled.div`
                 border-radius: 3px;
                 background: transparent;
                 padding-left: 0.5rem;
+                margin-left: 0.5rem;
                 color: #8a99a5;
                 font-size: 14px;
               }
               .title {
                 line-height: 1;
-                margin-bottom: 0.5rem;
-              }
-              .on-loss-radio-btn {
-                margin-right: 0.5rem;
+                margin-left: 0.5rem;
               }
             }
           }

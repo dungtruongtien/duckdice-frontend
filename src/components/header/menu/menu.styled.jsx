@@ -110,6 +110,6 @@ export const RightMenuHeader = styled(Col)`
 `;
 
 export const HeaderStyled = styled(Row)`
-    border-bottom: 1px solid #ebecf0;
+    border-bottom: 1px solid #3a434b;
     background: #3a434b;
 `;

@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { Field } from 'formik';
+import CustomRadioCheckbox from '../../../../../components/customRadioCheckbox';
 
 export default function OnLoss() {
   const [value, setValue] = useState(1);
 
-  const onChange = (checkValue) => {
+  const onRadioChange = (checkValue) => {
     setValue(checkValue);
   };
 
   return (
     <div className='on-loss-wrapper'>
       <div className='on-loss-btn-wrapper'>
-        <input onChange={() => onChange(1)} checked={value === 1} type='radio' className='on-loss-radio-btn' />
+        <CustomRadioCheckbox onChange={() => onRadioChange(1)} checked={value === 1} />
         <div>
           <div className='title'>CHANGE BET BY</div>
           <Field name='changeBetBy'>
@@ -26,11 +27,11 @@ export default function OnLoss() {
         </div>
       </div>
       <div className='on-loss-btn-wrapper'>
-        <input onChange={() => onChange(2)} checked={value === 2} type='radio' className='on-loss-radio-btn' />
+        <CustomRadioCheckbox onChange={() => onRadioChange(2)} checked={value === 2} />
         <div className='title'>RESET TO BASE BET</div>
       </div>
       <div className='on-loss-btn-wrapper'>
-        <input onChange={() => onChange(3)} checked={value === 3} type='radio' className='on-loss-radio-btn' />
+        <CustomRadioCheckbox onChange={() => onRadioChange(3)} checked={value === 3} />
         <div className='title'>STOP AUTOBET</div>
       </div>
     </div>
