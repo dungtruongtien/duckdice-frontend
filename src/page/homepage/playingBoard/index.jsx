@@ -8,7 +8,7 @@ import FlashMode from './flashMode';
 import AutoMode from './autoMode';
 
 export default function PlayingBoard() {
-  const [mode, setMode] = useState('auto');
+  const [mode, setMode] = useState('manual');
   return (
     <Board mode={mode}>
       <div className='board-header'>

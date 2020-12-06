@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import {
   Route, Switch, BrowserRouter, Redirect
 } from 'react-router-dom';
@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import { useLazyQuery } from '@apollo/react-hooks';
 import styled from 'styled-components';
 import HomePage from '../page/homepage';
-import Submit from '../page/submit';
 import { ME } from '../graphql/query';
 import { isAuthenticated } from '../util/authen';
 import { SET_USER_AUTH_SAGA } from '../constant';
@@ -23,23 +22,9 @@ const SuspenseSpin = styled.div`
 
 const routers = [
   {
-    path: '/submit',
-    component: Submit
-  },
-  {
     isExact: true,
     path: '/',
     component: connect()(HomePage)
-  },
-  {
-    path: '/detail/:id',
-    isPrivate: false,
-    component: lazy(() => import('../page/appDetail'))
-  },
-  {
-    path: '/user-page',
-    isPrivate: true,
-    component: lazy(() => import('../page/userPage'))
   }
 ];
 

@@ -31,18 +31,20 @@ export const HighLowModeStyled = styled.div`
         color: #8a99a5;
         font-size: 10px;
         border-radius: 6px;
-        &:hover {
+        ${(props) => props.isHighMode && `&:hover {
           color: #f6a623;
           background: #323a42;
-        }
+        }`}
       }
       .auto-btn {
-        background: ${(props) => (props.method === 'auto' ? '#323a42' : '#465059')};
-        color: ${(props) => (props.method === 'auto' ? '#f6a623' : '#8a99a5')};
+        cursor: ${(props) => (props.isHighMode ? 'pointer' : 'not-allowed')} ;
+        background: ${(props) => (props.isHighMode && props.method === 'auto' ? '#323a42' : '#465059')};
+        color: ${(props) => (props.isHighMode && props.method === 'auto' ? '#f6a623' : '#8a99a5')};
       }
       .manual-btn {
-        background: ${(props) => (props.method === 'manual' ? '#323a42' : '#465059')};
-        color: ${(props) => (props.method === 'manual' ? '#f6a623' : '#8a99a5')};      
+        cursor: ${(props) => (props.isHighMode ? 'pointer' : 'not-allowed')} ;
+        background: ${(props) => (props.isHighMode && props.method === 'manual' ? '#323a42' : '#465059')};
+        color: ${(props) => (props.isHighMode && props.method === 'manual' ? '#f6a623' : '#8a99a5')};
       }
     }
     .method-content {
@@ -55,6 +57,11 @@ export const HighLowModeStyled = styled.div`
             margin-left: 0.25rem;
           }
         }
+      }
+      .method-text {
+        color: #5c6b78;
+        font-size: 13px;
+        font-weight: 400;
       }
     }
   }

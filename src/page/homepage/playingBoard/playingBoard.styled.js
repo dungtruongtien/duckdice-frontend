@@ -19,6 +19,7 @@ export const Board = styled.div`
   width: 100%;
   padding: 20px;
   background: #3a434b;
+  margin-bottom: 1rem;
   .board-header {
     display: flex;
     margin-bottom: 1rem;

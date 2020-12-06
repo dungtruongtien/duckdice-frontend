@@ -10,7 +10,7 @@ import client from './graphql';
 ReactDOM.render(
   <ApolloProvider client={client}>
     <Provider store={store}>
-      <App />,
+      <App />
     </Provider>
   </ApolloProvider>,
   document.getElementById('root')

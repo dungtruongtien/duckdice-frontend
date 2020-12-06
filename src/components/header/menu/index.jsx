@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Select from './select';
+
 import {
   LoginButton,
   RegisterButton,
@@ -28,7 +28,6 @@ function Menu({ me, dispatch }) {
       setOpen(false);
     }, 50);
   };
-
 
   return (
     <HeaderStyled>
